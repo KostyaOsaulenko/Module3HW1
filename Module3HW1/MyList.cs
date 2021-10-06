@@ -27,7 +27,8 @@ namespace Module3HW1
         {
             if (_capacity <= _counter)
             {
-                Array.Resize(ref _array, _counter * 2);
+                _capacity *= 2;
+                Array.Resize(ref _array, _capacity);
             }
 
             _array[_counter++] = item;
@@ -63,7 +64,7 @@ namespace Module3HW1
 
         public void Sort(IComparer<T> comparer)
         {
-            Array.Sort(_array, 0, _counter, comparer);
+            Array.Sort(_array, 0, _capacity, comparer);
         }
 
         public IEnumerator<T> GetEnumerator()
